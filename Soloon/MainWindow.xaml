@@ -1,0 +1,111 @@
+﻿<Window x:Class="Soloon.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Soloon"
+        mc:Ignorable="d"
+        Title="Салон красоты" Height="450" Width="800">
+    <TabControl>
+        <TabItem Header="Услуги">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnAdd" Content="Добавить" Grid.Column="0" Click="btnAdd_Click" FontSize="18"/>
+                    <Button x:Name="btnEdit" Content="Изменить" Grid.Column="1" Click="btnEdit_Click" FontSize="18"/>
+                    <Button x:Name="btnDelete" Content="Удалить" Grid.Column="2" Click="btnDelete_Click" FontSize="18"/>
+                </Grid>
+                <DataGrid x:Name="dgServise" AutoGenerateColumns="False" Grid.Row="1" Background="Beige">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Название" Binding="{Binding Title}"/>
+                        <DataGridTextColumn Header="Стоимость" Binding="{Binding Cost}"/>
+                        <DataGridTextColumn Header="Длительность (сек)" Binding="{Binding DurationInSeconds}"/>
+                        <DataGridTextColumn Header="Описание" Binding="{Binding Description}"/>
+                        <DataGridTextColumn Header="Скидка" Binding="{Binding Discount}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Height="50" Width="50" Source="{Binding MainImagePath}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Клиенты">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnAddClient" Content="Добавить" Grid.Column="0" Click="btnAddClient_Click"/>
+                    <Button x:Name="btnEditClient" Content="Изменить" Grid.Column="1" Click="btnEditClient_Click"/>
+                    <Button x:Name="btnDeleteClient" Content="Удалить" Grid.Column="2" Click="btnDeleteClient_Click"/>
+                </Grid>
+                <DataGrid x:Name="dgClient" AutoGenerateColumns="False" Grid.Row="1" Background="Aquamarine">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"/>
+                        <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"/>
+                        <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"/>
+                        <DataGridTextColumn Header="День рождение" Binding="{Binding Birthday}"/>
+                        <DataGridTextColumn Header="Дата регистрации" Binding="{Binding RegistrationDate}"/>
+                        <DataGridTextColumn Header="Почта" Binding="{Binding Email}"/>
+                        <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"/>
+                        <DataGridTextColumn Header="Пол" Binding="{Binding GenderCode}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Height="50" Width="50" Source="{Binding PhotoPath}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Запись">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnAddClientService" Content="Добавить" Grid.Column="0" Click="btnAddClientService_Click"/>
+                    <Button x:Name="btnEditClientService" Content="Изменить" Grid.Column="1" Click="btnEditClientService_Click"/>
+                    <Button x:Name="btnDeleteClientService" Content="Удалить" Grid.Column="2" Click="btnDeleteClientService_Click"/>
+                </Grid>
+                <DataGrid x:Name="dgClientService" AutoGenerateColumns="False" Grid.Row="1" Background="Coral">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Клиент" Binding="{Binding ClientStr}"/>
+                        <DataGridTextColumn Header="Услуга" Binding="{Binding ServiceStr}"/>
+                        <DataGridTextColumn Header="Время записи" Binding="{Binding StartTime}"/>
+                        <DataGridTextColumn Header="Комментарий" Binding="{Binding Comment}"/>
+                        
+                    </DataGrid.Columns>
+                </DataGrid>
+                
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>
+   
